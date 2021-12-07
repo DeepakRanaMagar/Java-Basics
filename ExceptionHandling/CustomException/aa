@@ -1,0 +1,29 @@
+class InvalidGradeException extends Exception{
+    public InvalidGradeException(String msg){
+        super(msg);
+    }
+}
+class Student{
+    String name;
+    float grade;
+
+    public Student(String name, float grade)throws InvalidGradeException{
+        if(grade>4.0||grade<0.0){
+            throw new InvalidGradeException("INVALID GRADE !");
+        }else{
+            this.name=name;
+            this.grade=grade;
+        }
+    }
+
+
+    class StudentGrade{
+        public static void main(String[] args) {
+            try{
+                Student s = new Student("Deepak", 15);
+            }catch(InvalidGradeException e ){
+                System.out.println(e.getMessage());
+            }
+        }
+    }
+}
